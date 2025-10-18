@@ -1,0 +1,9 @@
+{
+	"name": "df-spotifyproject-azure",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "367464fe-93b1-4a48-9ed9-636ce14acf20",
+		"tenantId": "8e7f692a-a67f-43ff-b0d7-032e177bae33"
+	}
+}
