@@ -57,6 +57,12 @@
 						"dependencyConditions": [
 							"Succeeded"
 						]
+					},
+					{
+						"activity": "current",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
 				],
 				"policy": {
@@ -105,7 +111,10 @@
 				"outputs": [
 					{
 						"referenceName": "Parquet_dynamic",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze"
+						}
 					}
 				]
 			},
@@ -143,6 +152,23 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "current",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "current",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
@@ -154,6 +180,11 @@
 			},
 			"cdc_col": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"current": {
+				"type": "String"
 			}
 		},
 		"annotations": []
